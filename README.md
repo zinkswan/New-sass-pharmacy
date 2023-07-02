@@ -65,8 +65,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Add authentication cmd
 
-composer require laravel/ui .
-php artisan ui bootstrap --auth .
-npm install laravel-vite-plugin --save-dev .
-npm run dev .
-php artisan migrate:refresh --seed .
+<p><b>composer require laravel/ui</b>p></p>b>
+<p><b>php artisan ui bootstrap --auth</b>p></p>b>
+<p><b>npm install laravel-vite-plugin --save-dev</b>p></p>b>
+<p><b>npm run dev</b>p></p>b>
+<p><b>php artisan migrate:refresh --seed</b>p></p>b>
