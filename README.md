@@ -72,4 +72,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 <p><b>php artisan migrate:refresh --seed</b></p>
 
 ## install vue js
+<p>composer require laravel/ui</p>
+<p>php artisan ui vue</p>
+<p>npm install</p>
+
 <p>npm install --save-dev webpack@latest webpack-cli@latest</p>
+<p>npm cache clean --force</p>
+<p>npm cache verify</p>
