@@ -3,7 +3,7 @@
 
 <head>
     @include('layouts.partials.head')
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
 </head>
 @if (!Route::is(['error-404', 'error-500']))

@@ -5,13 +5,14 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "production": "mix --production",
-        "dev": "vite",
+        "dev": "npm run development",
         "watch": "vite --watch",
         "prod": "vite build",
         "vite": "vite"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
+        "@vitejs/plugin-vue": "^4.0.0",
         "axios": "^0.25",
         "bootstrap": "^5.2.3",
         "laravel-mix": "^6.0.6",
@@ -19,6 +20,10 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "sass": "^1.56.1",
-        "vite": "^4.3.9"
+        "vite": "^4.3.9",
+        "vue": "^3.2.37",
+        "vue-loader": "^17.2.2",
+        "webpack": "^5.88.1",
+        "webpack-cli": "^5.1.4"
     }
 }
