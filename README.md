@@ -70,3 +70,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 <p><b>npm install laravel-vite-plugin --save-dev</b></p>
 <p><b>npm run dev</b></p>
 <p><b>php artisan migrate:refresh --seed</b></p>
+
+## install vue js
+<p>npm install --save-dev webpack@latest webpack-cli@latest</p>
