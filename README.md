@@ -79,3 +79,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 <p>npm install --save-dev webpack@latest webpack-cli@latest</p>
 <p>npm cache clean --force</p>
 <p>npm cache verify</p>
+
+## To build app 
+<p>npm run dev</p>
