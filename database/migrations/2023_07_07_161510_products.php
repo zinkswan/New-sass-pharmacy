@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('categoryId');
             $table->integer('typeId');
             $table->integer('quantity');
+            $table->integer('minQuantity');
             $table->integer('createdBy');
             $table->integer('status');
             $table->integer('tax');

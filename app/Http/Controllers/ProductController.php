@@ -11,6 +11,6 @@ class ProductController extends Controller
     public function index()
     {
        // $users = Products::orderBy('id','desc')->paginate(5);
-        return view('Products.index',  );
+        return view('products.index'  );
     }
 }

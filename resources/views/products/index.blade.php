@@ -19,6 +19,12 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
+                            <label>SKU</label>
+                            <input type="text" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="form-group">
                             <label>Category</label>
                             <select class="select">
                                 <option>Choose Category</option>
@@ -28,34 +34,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Sub Category</label>
-                            <select class="select">
-                                <option>Choose Sub Category</option>
-                                <option>Fruits</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label>Brand</label>
-                            <select class="select">
-                                <option>Choose Brand</option>
-                                <option>Brand</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label>Unit</label>
-                            <select class="select">
-                                <option>Choose Unit</option>
-                                <option>Unit</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="form-group">
-                            <label>SKU</label>
+                            <label>Quantity</label>
                             <input type="text" >
                         </div>
                     </div>
@@ -67,14 +46,11 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Quantity</label>
-                            <input type="text" >
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control"></textarea>
+                            <label>Type</label>
+                            <select class="select">
+                                <option>Choose Type</option>
+                                <option>Fruits</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
@@ -88,17 +64,13 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Discount Type</label>
-                            <select class="select">
-                                <option>Percentage</option>
-                                <option>10%</option>
-                                <option>20%</option>
-                            </select>
+                            <label>Selling Price</label>
+                            <input type="text" >
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Price</label>
+                            <label>Buying Price</label>
                             <input type="text" >
                         </div>
                     </div>
@@ -109,6 +81,21 @@
                                 <option>Closed</option>
                                 <option>Open</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="form-group">
+                            <label>Created By</label>
+                            <select class="select">
+                                <option>Closed</option>
+                                <option>Open</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-12">
