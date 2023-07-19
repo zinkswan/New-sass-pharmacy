@@ -13,16 +13,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('productName');
             $table->string('sku');
-            $table->integer('categoryId');
-            $table->integer('typeId');
+            $table->unsignedBigInteger('categoryId');
+            $table->unsignedBigInteger('typeId');
+            $table->unsignedBigInteger('providerId');
             $table->integer('quantity');
             $table->integer('minQuantity');
-            $table->integer('createdBy');
-            $table->integer('status');
+            $table->unsignedBigInteger('createdBy');
+            $table->unsignedBigInteger('status');
             $table->integer('tax');
             $table->text('description');
             $table->double('buyingPrice');
@@ -34,6 +35,7 @@ return new class extends Migration
             $table->foreign('typeId')->references('id')->on('types');
             $table->foreign('createdBy')->references('id')->on('users');
             $table->foreign('status')->references('id')->on('statuses');
+            $table->foreign('providerId')->references('id')->on('providers');
         });
     }
 

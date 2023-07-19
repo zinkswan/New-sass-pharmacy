@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use HasFactory;
+    public $table = 'Categories';
+    public $primaryKey = 'id';
+    public $incrementing = true;
+    public $timestamps = false;
 }

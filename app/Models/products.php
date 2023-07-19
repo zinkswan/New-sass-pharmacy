@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class products extends Model
 {
-    use HasFactory;
+    public $table = 'products';
+    public $primaryKey = 'id';
+    public $incrementing = true;
+    public $timestamps = false;
+
 }

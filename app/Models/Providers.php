@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Providers extends Model
 {
-    use HasFactory;
+    public $table = 'providers';
+    public $primaryKey = 'id';
+    public $incrementing = true;
+    public $timestamps = false;
     
     protected $fillable = [
         'code',
