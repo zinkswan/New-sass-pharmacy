@@ -1,7 +1,7 @@
 <template>
-    <div class="page-wrapper">
-        <div class="content">
-            <!-- /add -->
+    <div>
+        <div>
+            <!--/add -->
             <form @submit.prevent="saveData()">
                 <div class="card">
                     <div class="card-body">
@@ -21,10 +21,9 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>Category</label>
-                                    <select class="select" name="categoryId">
-                                        <option v-for="cg in categories" :key="cg.id" :value="cg.id">{{ cg.name }}</option>
+                                    <select  v-model="products.categoryId">
+                                        <option v-for="cg in categories" v-bind:value="cg.id">{{ cg.name }}</option>
                                     </select>
-
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
@@ -36,13 +35,13 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>Minimum Qty</label>
-                                    <input type="text" name="minQuantity" v-model="products.minQunatity">
+                                    <input type="text" name="minQuantity" v-model="products.minQuantity">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>Provider</label>
-                                    <select class="select" name="providerId">
+                                    <select name="providerId" v-model="products.providerId">
                                         <option v-for="pr in providers" :key="pr.id" :value="pr.id">{{ pr.name }}</option>
                                     </select>
                                 </div>
@@ -50,16 +49,15 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>Type</label>
-                                    <select class="select" name="typeId" v-model="products.type">
-                                        <option value=""></option>
-
+                                    <select name="typeId" v-model="products.typeId">
+                                        <option v-for="tp in types" :key="tp.id" :value="tp.id">{{ tp.label }}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>Tax</label>
-                                    <select class="select" name="tax" v-model="products.tax">
+                                    <select name="tax" v-model="products.tax">
                                         <option>Choose Tax</option>
                                         <option>7</option>
                                         <option>14</option>
@@ -82,8 +80,8 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label> Status</label>
-                                    <select class="select" name="statuses" v-model="products.status">
-                                        <option value=""></option>
+                                    <select name="statuses" v-model="products.status">
+                                        <option v-for="st in statuses" :key="st.id" :value="st.id">{{ st.label }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -109,13 +107,13 @@
                             <div class="col-lg-12">
                                 <!--<a type="submit" class="btn btn-submit me-2">Submit</a>-->
                                 <input type="submit" class="btn btn-submit me-2">
-                                <a href="{{url('productlist')}}" class="btn btn-cancel">Cancel</a>
+                                <a href="url:'productlist'" class="btn btn-cancel">Cancel</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
-            <!-- /add -->
+            <!--/add-->
         </div>
     </div>
 </template>
@@ -124,21 +122,21 @@ export default {
     data() {
         return {
             products: {
-                'productName': '',
-                'sku': '',
-                'category': '',
-                'type': '',
-                'provider': '',
-                'status': '',
-                'tax': '',
-                'quantity': '',
-                'minQunatity': '',
-                'sellingPrice': '',
-                'buyingPrice': '',
-                'description': '',
-                'productImage': '',
-                'active': '',
-                'createdBy': '',
+                productName: '',
+                sku: '',
+                categoryId: '',
+                typeId: '',
+                providerId: '',
+                status: '',
+                tax: '',
+                quantity: '',
+                minQuantity: '',
+                sellingPrice: '',
+                buyingPrice: '',
+                description: '',
+                //'productImage': '',
+                active: '1',
+                createdBy: '1',
 
             },
             categories: {},
@@ -148,26 +146,70 @@ export default {
         }
     },
     mounted() {
-        axios.get('/category')
+        axios.get('/api/category')
             .then(response => {
                 this.categories = response.data.data;
-                
+
             })
-        axios.get('/provider')
+        axios.get('/api/provider')
             .then(response => {
                 this.providers = response.data.data;
             })
+        axios.get('/api/type')
+            .then(response => {
+                this.types = response.data.data;
+            })
+        axios.get('/api/status').then(response => {
+            this.statuses = response.data.data
+        })
     },
     methods: {
         saveData() {
-            axios.post('/products/create', this.products).then(
-                response => {
+            console.log(this.products);
+            axios.post('/api/products/create', this.products).
+                then((response) => {
+                    // Clear the form and update the product list
                     console.log(response);
-                }
-            ).catch(error => {
-                console.log('Error here');
-            })
+                    if (response.data) {
+                        Swal.fire({
+                            title: response.data.success,
+                            confirmButtonClass: "btn btn-primary",
+                            buttonsStyling: !1,
+                        });
+
+                        this.$router.push("/productList");
+                    } else {
+                        Swal.fire({
+                            title: "Error server try later !!!!",
+                            confirmButtonClass: "btn btn-primary",
+                            buttonsStyling: !1,
+                        });
+                    }
+                }).catch((error) => {
+                    console.log("error0", error);
+                    if (error.response) {
+                        Swal.fire({
+                            title: "Error!",
+                            text: error.response.data.message,
+                            type: "error",
+                            confirmButtonClass: "btn btn-primary",
+                            buttonsStyling: !1,
+                        });
+                        // The request was made and the server responded with a status code
+                        console.log(error.response.data); // Error response data
+                        console.log(error.response.status); // Error status code
+                        console.log(error.response.statusText); // Error status text
+                    } else if (error.request) {
+                        // The request was made, but no response was received
+                        console.log(error.request);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log("Error", error.message);
+                    }
+                    console.log(error.config);
+                });
         }
-    }
+    },
 };
+
 </script>

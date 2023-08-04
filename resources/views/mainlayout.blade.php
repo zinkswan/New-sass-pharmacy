@@ -6,6 +6,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 </head>
+
 @if (!Route::is(['error-404', 'error-500']))
 
     <body>
@@ -18,18 +19,25 @@
 
     <body class="account-page">
 @endif
-@include('layouts.partials.loader')
-<!-- Main Wrapper -->
-<div class="main-wrapper">
-    @if (!Route::is(['error-404', 'error-500', 'forgetpassword', 'resetpassword', 'login', 'register']))
-        @include('layouts.partials.header')
-    @endif
-    @if (!Route::is(['error-404', 'error-500', 'forgetpassword', 'pos', 'resetpassword', 'login', 'register']))
-        @include('layouts.partials.sidebar')
-    @endif
-    @yield('content')
+<div id="app">
+    <div class="">
+
+
+
+        @include('layouts.partials.loader')
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            @if (!Route::is(['error-404', 'error-500', 'forgetpassword', 'resetpassword', 'login', 'register']))
+                @include('layouts.partials.header')
+            @endif
+            @if (!Route::is(['error-404', 'error-500', 'forgetpassword', 'pos', 'resetpassword', 'login', 'register']))
+                @include('layouts.partials.sidebar')
+            @endif
+            @yield('content')
+        </div>
+        <!-- /Main Wrapper -->
+    </div>
 </div>
-<!-- /Main Wrapper -->
 @include('layouts.partials.footer-scripts')
 </body>
 

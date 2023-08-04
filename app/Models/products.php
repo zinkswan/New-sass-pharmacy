@@ -11,5 +11,21 @@ class products extends Model
     public $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false;
+    protected $fillable = [
+        'productName',
+        'sku',
+        'categoryId',
+        'typeId',
+        'providerId',
+        'status',
+        'tax',
+        'quantity',
+        'minQuantity',
+        'sellingPrice',
+        'buyingPrice',
+        'description',
+        'active',
+        'createdBy',
+    ];
 
 }

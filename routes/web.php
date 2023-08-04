@@ -26,6 +26,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::view('addProviders' , 'providers/AddProviders');
+Route::view('addProviders', 'providers/AddProviders');
 
-Route::view('providers' , 'providers/index');
+Route::view('providers', 'providers/index');
+Route::get('/{any}', function () {
+    return view('home'); })->where('any','.*');

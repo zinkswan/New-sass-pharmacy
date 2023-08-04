@@ -15,7 +15,3 @@ use App\Http\Controllers\ProductController;
 */
 
 
-Route::get('/product', [ProductController::class, 'index']);
-Route::post('/products/create',[ProductController::class,'save']);
-Route::get('/category',[ProductController::class,'fillCategory']);
-Route::get('/provider',[ProductController::class,'fillProvider']);

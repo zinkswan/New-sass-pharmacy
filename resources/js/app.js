@@ -6,6 +6,7 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import {createRouter, createWebHistory} from 'vue-router';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -15,25 +16,23 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
-import Products from './components/Products.vue';
-app.component('Products', Products);
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import addProduct from './components/addProduct.vue';
+import ProductList from './components/ProductList.vue';
+import editProduct from './components/editProduct.vue';
+import navbar from "./components/navbar/nav.vue";
+app.component('addProduct', addProduct);
+app.component('editProduct', editProduct);
+app.component('ProductList', ProductList);
+app.component("navbar", navbar);
 
-// Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
-//     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
-// });
+const routes=[
+    {path: "/productList", component: ProductList},
+    {path: "/addproduct", component: addProduct},
+    {path: "/editProduct/:id", component: editProduct},
+]
 
-/**
- * Finally, we will attach the application instance to a HTML element with
- * an "id" attribute of "app". This element is included with the "auth"
- * scaffolding. Otherwise, you will need to add an element yourself.
- */
+const router= createRouter({history:createWebHistory(),routes});
+app.use(router);
 
 app.mount('#app');
